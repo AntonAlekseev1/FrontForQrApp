@@ -22,6 +22,8 @@
     <input type="button" value="create QR" (click)="createQrCode() " class="btn btn-success"/>
   </div>
 </td>
-<div id="error">{{qrCodeId}}</div>
+<div *ngIf="qrCodeId">
+  <img src="{{imageUrl}}">
+</div>
 </body>
 </html>

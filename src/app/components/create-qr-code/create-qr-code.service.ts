@@ -13,7 +13,7 @@ export class CreateQrCodeService {
   }
 
   createQrCode(qrCode: QrCode) {
-    const body = {message: qrCode.message, fileSize:qrCode.fileSize};
+    const body = {message: qrCode.message, fileSize: qrCode.fileSize};
     return this.httpClient.post(this.url, body)
   }
 }
