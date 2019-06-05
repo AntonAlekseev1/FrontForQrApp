@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>header</title>
+</head>
+<body>
+<header>
+  <h1>Create QR code</h1>
+</header>
+<td>
+  <div>
+    <input type = "text" placeholder="enter qr code message hear" [(ngModel)]="qrCode.message">
+  </div>
+</td>
+<td>
+  <div>
+    <input type = "number" placeholder="file size" [(ngModel)]="qrCode.fileSize">
+  </div>
+</td>
+<td>
+  <div>
+    <input type="button" value="create QR" (click)="createQrCode() " class="btn btn-success"/>
+  </div>
+</td>
+<div id="error">{{qrCodeId}}</div>
+</body>
+</html>
