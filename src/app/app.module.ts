@@ -7,11 +7,13 @@ import {CreateQrCodeComponent} from './components/create-qr-code/create-qr-code.
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {CreateQrCodeService} from "./components/create-qr-code/create-qr-code.service";
+import { UploadFileComponent } from './components/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateQrCodeComponent
+    CreateQrCodeComponent,
+    UploadFileComponent
   ],
   imports: [
     BrowserModule,
