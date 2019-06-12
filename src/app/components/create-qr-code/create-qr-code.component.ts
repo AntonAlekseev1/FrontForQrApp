@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CreateQrCodeService} from "./create-qr-code.service";
 import {QrCode} from "../../entities/QrCode";
 import {Response} from "../../entities/Response";
+import {EmailService} from "../email/email.service";
 
 @Component({
   selector: 'app-create-qr-code',
@@ -15,7 +16,8 @@ export class CreateQrCodeComponent implements OnInit {
   qrCodeId: string;
   imageUrlPrefix:string = "http://localhost:8080/qr-code/get-qr-image/";
   imageUrl:string;
-  constructor(private service: CreateQrCodeService) {
+  toEmail: string;
+  constructor(private service: CreateQrCodeService, private emailService: EmailService) {
     this.qrCode = new QrCode();
   }
 
@@ -31,4 +33,11 @@ export class CreateQrCodeComponent implements OnInit {
     this.imageUrl = null;
   }
 
+  sendEmail() {
+    this.emailService.sendEmail(this.toEmail, this.qrCodeId).subscribe((response: Response)=>{
+      this.response = response;
+      console.log(response.data.toString())
+    });
+    this.toEmail = null;
+  }
 }
