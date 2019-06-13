@@ -17,6 +17,7 @@ export class CreateQrCodeComponent implements OnInit {
   imageUrlPrefix:string = "http://localhost:8080/qr-code/get-qr-image/";
   imageUrl:string;
   toEmail: string;
+  responseMessage: string;
   constructor(private service: CreateQrCodeService, private emailService: EmailService) {
     this.qrCode = new QrCode();
   }
@@ -36,8 +37,20 @@ export class CreateQrCodeComponent implements OnInit {
   sendEmail() {
     this.emailService.sendEmail(this.toEmail, this.qrCodeId).subscribe((response: Response)=>{
       this.response = response;
-      console.log(response.data.toString())
+      if (response.error === null) {
+        this.responseMessage = response.data.toString();
+        console.log(response.data.toString());
+        alert(this.responseMessage.toString());
+      } else {
+        this.responseMessage = response.error.data.toString();
+        console.log(response.error.data.toString());
+        this.toEmail = prompt(response.error.data.toString() + ", please enter valid email");
+        if (this.toEmail != null) {
+          this.sendEmail();
+        }
+      }
     });
     this.toEmail = null;
+    this.responseMessage = null;
   }
 }
