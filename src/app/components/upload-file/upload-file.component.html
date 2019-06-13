@@ -6,4 +6,7 @@
   #fileInput>
 <button type="button" (click)="fileInput.click()">Pick file</button>
 <button type="button" (click)="onUpload()">Upload</button>
-<div >{{responseMessage}}</div>
+<div id="response" *ngIf="responseMessage">
+  <b>QR code message: </b>
+  <i id="response-message">{{responseMessage}}</i>
+</div>
