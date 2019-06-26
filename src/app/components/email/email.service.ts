@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class EmailService {
 
-  private url = 'http://localhost:8080/email/send';
+  private url = 'https://qr-generation-service.herokuapp.com/email/send';
 
   constructor(private httpClient: HttpClient) {
   }

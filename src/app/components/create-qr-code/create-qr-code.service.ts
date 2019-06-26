@@ -7,7 +7,7 @@ import {QrCode} from "../../entities/QrCode";
 })
 export class CreateQrCodeService {
 
-  private url = 'http://localhost:8080/qr-code/create';
+  private url = 'https://qr-generation-service.herokuapp.com/qr-code/create';
 
   constructor(private httpClient: HttpClient) {
   }
