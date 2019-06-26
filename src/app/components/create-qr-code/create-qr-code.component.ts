@@ -14,7 +14,7 @@ export class CreateQrCodeComponent implements OnInit {
   response: Response = new Response();
   qrCode: QrCode;
   qrCodeId: string;
-  imageUrlPrefix:string = "http://localhost:8080/qr-code/get-qr-image/";
+  imageUrlPrefix:string = "https://qr-generation-service.herokuapp.com/qr-code/get-qr-image/";
   imageUrl:string;
   toEmail: string;
   responseMessage: string;

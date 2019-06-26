@@ -25,7 +25,7 @@ export class UploadFileComponent implements OnInit {
   onUpload() {
     const fd = new FormData();
     fd.append('file', this.selectedFile, this.selectedFile.name);
-    this.httpClient.post('http://localhost:8080/qr-code/read', fd)
+    this.httpClient.post('https://qr-generation-service.herokuapp.com/qr-code/read', fd)
       .subscribe((res: Response) => {
         console.log(res);
         if(res.status==='Success') {
