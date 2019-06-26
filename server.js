@@ -1,13 +1,15 @@
 const express = require('express');
 const app = express();
 const path =require('path');
+const router = express.Router();
 
-app.use(express.static(__dirname + './src'));
+app.use(express.static('./dist'));
+app.use('/*', express.static(path.resolve('dist/index.html')));
 
 app.listen(process.env.PORT || 5000);
 
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, './src/index.html'));
+router.get('*', function(req, res) {
+  res.sendFile(path.resolve('dist/index.html'));
 });
 
 console.log('Console listening');
