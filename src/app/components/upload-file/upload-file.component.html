@@ -6,6 +6,10 @@
   #fileInput>
 <button type="button" (click)="fileInput.click()">Pick file</button>
 <button type="button" (click)="onUpload()">Upload</button>
+<div>
+  <img [src]="imgURL" height="200" *ngIf="imgURL">
+</div>
+<span style="color:red;" *ngIf="message">{{message}}</span>
 <div id="response" *ngIf="responseMessage">
   <b>QR code message: </b>
   <i id="response-message">{{responseMessage}}</i>
