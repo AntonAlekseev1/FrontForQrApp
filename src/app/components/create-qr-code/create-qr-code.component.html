@@ -22,9 +22,13 @@
     <input type="button" value="create QR" (click)="createQrCode() " class="btn btn-success"/>
   </div>
 </td>
-<div *ngIf="qrCodeId">
+<div *ngIf="qrCodeId; else loading">
   <img src="{{imageUrl}}">
 </div>
+<ng-template #loading>
+  <p></p>
+  <img src="https://cssauthor.com/wp-content/uploads/2018/06/Sliding-Square-Loader.gif">
+</ng-template>
 <div *ngIf="qrCodeId">
   <input type = "text" placeholder="example@example.com" [(ngModel)]="toEmail">
   <input type="button" value="Send Email" (click)="sendEmail() " class="btn btn-success"/>
