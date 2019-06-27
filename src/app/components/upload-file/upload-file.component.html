@@ -7,8 +7,12 @@
 <button type="button" (click)="fileInput.click()">Pick file</button>
 <button type="button" (click)="onUpload()">Upload</button>
 <div>
-  <img [src]="imgURL" height="200" *ngIf="imgURL">
+  <img [src]="imgURL" height="200" *ngIf="imgURL; else waiting">
 </div>
+<ng-template #waiting>
+  <p></p>
+  <img src="https://media.tenor.com/images/027be96ae8901eaa4626f463198e6e3e/tenor.gif">
+</ng-template>
 <span style="color:red;" *ngIf="message">{{message}}</span>
 <div id="response" *ngIf="responseMessage">
   <b>QR code message: </b>
