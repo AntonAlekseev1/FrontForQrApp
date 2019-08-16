@@ -4,10 +4,8 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <a routerLink="/createQr">create QR code</a>
-  <div>
-    <a routerLink="/uploadFile">upload file</a>
-  </div>
+  <a id="create-qr" routerLink="/createQr">create QR code</a>
+  <a id="upload-file" routerLink="/uploadFile">upload file</a>
 </header>
 <div id="content">
   <router-outlet></router-outlet>
